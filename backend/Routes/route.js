@@ -15,7 +15,7 @@ route.get("/", async (req, res) => {
 route.post("/", async (req, res) => {
     const time = await prisma.time_record.create({
         data: {
-            time: req.body.time
+            time:req.body.time
         }
     })
     res.json(time)
@@ -25,7 +25,7 @@ route.post("/", async (req, res) => {
 // delete time
 route.delete("/:id", async (req, res)=> {
 
-    await prisma.time_record.delete({
+    await prisma.time_record.deleteMany({
         where:{
             id: parseInt(req.params.id)
         }
